@@ -207,7 +207,7 @@ function App() {
             <div>
               <div className="rounded-3xl bg-white/10 border border-white/15 p-4 shadow-2xl">
                 <img
-                  src="https://1024terabox.com/s/1R5y-HHaut0wFWJ4uUkSinw"
+                  src="https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/644721244_2392989944498763_5104183655260587931_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=vmSVe1FD-SMQ7kNvwH_UNYn&_nc_oc=AdqN7RNQ51j7jOkWIBWZ9h7t2W1CGlkz8tJl_ywKfeys1UQzacikHp-JJG3SQAewbJ8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a32e&oh=03_Q7cD5AFG3CE-6PKVUQa8votaVSEopOIUup7VPAKOmcpBuD9mPA&oe=69FBCB3F"
                   alt="তিস্তা নদী"
                   className="h-[260px] sm:h-[360px] md:h-[460px] w-full object-cover rounded-2xl"
                 />
