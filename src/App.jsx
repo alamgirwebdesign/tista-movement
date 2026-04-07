@@ -207,7 +207,7 @@ function App() {
             <div>
               <div className="rounded-3xl bg-white/10 border border-white/15 p-4 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80"
+                  src="https://1024terabox.com/s/1R5y-HHaut0wFWJ4uUkSinw"
                   alt="তিস্তা নদী"
                   className="h-[260px] sm:h-[360px] md:h-[460px] w-full object-cover rounded-2xl"
                 />
