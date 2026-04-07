@@ -464,10 +464,10 @@ function App() {
                   কুড়িগ্রাম, বাংলাদেশ
                 </p>
                 <p>
-                  <span className="font-semibold">মোবাইল:</span> 01XXXXXXXXX
+                  <span className="font-semibold">মোবাইল:</span> 01755255293
                 </p>
                 <p>
-                  <span className="font-semibold">ইমেইল:</span> info@example.com
+                  <span className="font-semibold">ইমেইল:</span> info@tistamovement.com
                 </p>
               </div>
             </div>
