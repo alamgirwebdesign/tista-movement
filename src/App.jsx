@@ -52,12 +52,10 @@ const members = [
 ]
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/658962971_728770956990407_7773722764193212609_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=eMQz1gwNNtQQ7kNvwGwLAVj&_nc_oc=AdriIUT17c7fAsShQofU8oeY0YrvCSbl0bQgBpTTCEchFQMERh7Ehgn19Ea8CkQk69E&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHcc8ZpIWvUA538wU1OWRTmSsPaShp1Ehy7S62bpc-B0Q&oe=69FBDA99',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/657439400_946264747812951_6985388724800187583_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_ohc=EVeSOnfFiC0Q7kNvwFxpNK4&_nc_oc=AdrQf2Pf-OR-UrAM7IkIjKsRpl5fLQ9di1YBdheUu9mVczXou_K8ZpvoQiqFKsL_nT8&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AGR1WdG-jNwSptqtKpZl-TYAZJLnp5SPepexqZUj6zKFQ&oe=69FBDAA7',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/661646901_960665896406719_6111716489866440374_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_ohc=8wmUeeUjaokQ7kNvwFREgBl&_nc_oc=AdpGnOksr7FiiB2LMbqUVH9KJZzx7lonWLnen9yYfaepO7ciTh1zdRJkWk0oe1Vwjqc&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHYn8lq7KCONpwu9o6aEneyexiY-haZNZ6z_8PPgYOGFg&oe=69FC0EBC',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/646137380_1457179909150349_2051163973851363628_n.jpg?stp=dst-jpg_s2048x2048_tt6&_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=Y_LvRxs8eIAQ7kNvwFM20Bq&_nc_oc=Adpk_N6kjKmQ8nmbj8cY--BYtSZh1KLF-eOfte9-JtOh1--beQzMLiGaOQqoTDFzNlo&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHHgKpFouvF8xadY8v0V8I_fDvfVQRiymcKlRVB4ze4dg&oe=69FC108A',
 ]
 
 function SectionTitle({ small, title, center = false }) {
