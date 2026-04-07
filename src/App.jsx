@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const navItems = [
   { label: 'হোম', href: '#home' },
@@ -58,6 +58,13 @@ const galleryImages = [
   'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/646137380_1457179909150349_2051163973851363628_n.jpg?stp=dst-jpg_s2048x2048_tt6&_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=Y_LvRxs8eIAQ7kNvwFM20Bq&_nc_oc=Adpk_N6kjKmQ8nmbj8cY--BYtSZh1KLF-eOfte9-JtOh1--beQzMLiGaOQqoTDFzNlo&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHHgKpFouvF8xadY8v0V8I_fDvfVQRiymcKlRVB4ze4dg&oe=69FC108A',
 ]
 
+const sliderImages = [
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/644721244_2392989944498763_5104183655260587931_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=vmSVe1FD-SMQ7kNvwH_UNYn&_nc_oc=AdqN7RNQ51j7jOkWIBWZ9h7t2W1CGlkz8tJl_ywKfeys1UQzacikHp-JJG3SQAewbJ8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a32e&oh=03_Q7cD5AFG3CE-6PKVUQa8votaVSEopOIUup7VPAKOmcpBuD9mPA&oe=69FBCB3F',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/658962971_728770956990407_7773722764193212609_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=eMQz1gwNNtQQ7kNvwGwLAVj&_nc_oc=AdriIUT17c7fAsShQofU8oeY0YrvCSbl0bQgBpTTCEchFQMERh7Ehgn19Ea8CkQk69E&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHcc8ZpIWvUA538wU1OWRTmSsPaShp1Ehy7S62bpc-B0Q&oe=69FBDA99',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/657439400_946264747812951_6985388724800187583_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_ohc=EVeSOnfFiC0Q7kNvwFxpNK4&_nc_oc=AdrQf2Pf-OR-UrAM7IkIjKsRpl5fLQ9di1YBdheUu9mVczXou_K8ZpvoQiqFKsL_nT8&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AGR1WdG-jNwSptqtKpZl-TYAZJLnp5SPepexqZUj6zKFQ&oe=69FBDAA7',
+  'https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/661646901_960665896406719_6111716489866440374_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_ohc=8wmUeeUjaokQ7kNvwFREgBl&_nc_oc=AdpGnOksr7FiiB2LMbqUVH9KJZzx7lonWLnen9yYfaepO7ciTh1zdRJkWk0oe1Vwjqc&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a3a8&oh=03_Q7cD5AHYn8lq7KCONpwu9o6aEneyexiY-haZNZ6z_8PPgYOGFg&oe=69FC0EBC',
+]
+
 function SectionTitle({ small, title, center = false }) {
   return (
     <div className={center ? 'text-center mb-8' : 'mb-8'}>
@@ -74,10 +81,26 @@ function SectionTitle({ small, title, center = false }) {
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [showAdminModal, setShowAdminModal] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const goPrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length)
+  }
+
+  const goNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % sliderImages.length)
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
-      {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="h-16 flex items-center justify-between">
@@ -149,7 +172,6 @@ function App() {
         </div>
       </header>
 
-      {/* Hero */}
       <section
         id="home"
         className="relative overflow-hidden bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-700 text-white"
@@ -204,18 +226,52 @@ function App() {
 
             <div>
               <div className="rounded-3xl bg-white/10 border border-white/15 p-4 shadow-2xl">
-                <img
-                  src="https://scontent.fdac146-1.fna.fbcdn.net/v/t1.15752-9/644721244_2392989944498763_5104183655260587931_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=vmSVe1FD-SMQ7kNvwH_UNYn&_nc_oc=AdqN7RNQ51j7jOkWIBWZ9h7t2W1CGlkz8tJl_ywKfeys1UQzacikHp-JJG3SQAewbJ8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fdac146-1.fna&_nc_ss=7a32e&oh=03_Q7cD5AFG3CE-6PKVUQa8votaVSEopOIUup7VPAKOmcpBuD9mPA&oe=69FBCB3F"
-                  alt="তিস্তা নদী"
-                  className="h-[260px] sm:h-[360px] md:h-[460px] w-full object-cover rounded-2xl"
-                />
+                <div className="relative overflow-hidden rounded-2xl">
+                  <img
+                    src={sliderImages[currentSlide]}
+                    alt={`স্লাইড ${currentSlide + 1}`}
+                    className="h-[260px] sm:h-[360px] md:h-[460px] w-full object-cover"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                  <button
+                    onClick={goPrevSlide}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/45 text-white text-lg hover:bg-black/60 transition"
+                    aria-label="আগের ছবি"
+                  >
+                    ‹
+                  </button>
+
+                  <button
+                    onClick={goNextSlide}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/45 text-white text-lg hover:bg-black/60 transition"
+                    aria-label="পরের ছবি"
+                  >
+                    ›
+                  </button>
+
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    {sliderImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`h-2.5 rounded-full transition-all ${
+                          currentSlide === index
+                            ? 'w-8 bg-white'
+                            : 'w-2.5 bg-white/60 hover:bg-white/80'
+                        }`}
+                        aria-label={`স্লাইড ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About */}
       <section id="about" className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="আমাদের পরিচিতি" title="কেন এই সংগঠন" />
@@ -243,7 +299,6 @@ function App() {
         </div>
       </section>
 
-      {/* Problem */}
       <section id="problem" className="py-16 md:py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="সমস্যার চিত্র" title="তিস্তা নদী ভাঙনের প্রভাব" />
@@ -269,7 +324,6 @@ function App() {
         </div>
       </section>
 
-      {/* Demands */}
       <section id="demands" className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="আমাদের দাবি" title="জনগণের ন্যায্য দাবি" />
@@ -290,7 +344,6 @@ function App() {
         </div>
       </section>
 
-      {/* Activities */}
       <section id="activities" className="py-16 md:py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="চলমান কার্যক্রম" title="আমরা কী করছি" />
@@ -311,7 +364,6 @@ function App() {
         </div>
       </section>
 
-      {/* Notices */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="নোটিশ ও আপডেট" title="সাম্প্রতিক ঘোষণা" />
@@ -335,7 +387,6 @@ function App() {
         </div>
       </section>
 
-      {/* Gallery */}
       <section id="gallery" className="py-16 md:py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="গ্যালারি" title="ছবি ও কার্যক্রম" />
@@ -357,7 +408,6 @@ function App() {
         </div>
       </section>
 
-      {/* Members */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="সদস্য ও নেতৃত্ব" title="সংগঠনের দায়িত্বশীলরা" />
@@ -379,7 +429,6 @@ function App() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-16 bg-emerald-800 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl md:text-4xl font-extrabold leading-tight">
@@ -398,7 +447,6 @@ function App() {
         </div>
       </section>
 
-      {/* Contact */}
       <section id="contact" className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle small="যোগাযোগ" title="আমাদের সাথে যোগাযোগ করুন" />
@@ -419,8 +467,7 @@ function App() {
                   <span className="font-semibold">মোবাইল:</span> 01XXXXXXXXX
                 </p>
                 <p>
-                  <span className="font-semibold">ইমেইল:</span>{' '}
-                  info@example.com
+                  <span className="font-semibold">ইমেইল:</span> info@example.com
                 </p>
               </div>
             </div>
@@ -456,7 +503,6 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-slate-900 text-slate-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
@@ -478,7 +524,6 @@ function App() {
         </div>
       </footer>
 
-      {/* Admin Modal */}
       {showAdminModal && (
         <div className="fixed inset-0 z-[100] bg-black/50 px-4 flex items-center justify-center">
           <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
